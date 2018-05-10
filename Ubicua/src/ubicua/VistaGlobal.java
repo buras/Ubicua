@@ -6,7 +6,9 @@
 package ubicua;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -17,11 +19,18 @@ public class VistaGlobal extends javax.swing.JFrame {
     /**
      * Creates new form VistaGlobal
      */
+    ArrayList<ArrayList<JPanel>> azul;
+    ArrayList<ArrayList<JPanel>> rojo;
+    int posicionAzul, posicionRojo;
+    ArrayList<JLabel> iconoAzul;
+    ArrayList<JLabel> iconoRojo;
     
     public VistaGlobal() {
         initComponents(); 
-
-         //Iconos de linea de bus azul escondidos
+        posicionAzul = 0; posicionRojo = 0;
+       setCaminoAzul(); 
+       
+        iconoAzul = new ArrayList();   
         this.busazul2.setVisible(false);
         this.busazul3.setVisible(false);
         this.busazul4.setVisible(false);
@@ -32,8 +41,9 @@ public class VistaGlobal extends javax.swing.JFrame {
         this.busazul9.setVisible(false);
         this.busazul10.setVisible(false);
         this.busazul11.setVisible(false);
-
-        //Iconos de linea de bus escondidos
+        
+       
+        iconoRojo = new ArrayList();
         this.busrojo2.setVisible(false);
         this.busrojo3.setVisible(false);
         this.busrojo4.setVisible(false);
@@ -47,7 +57,16 @@ public class VistaGlobal extends javax.swing.JFrame {
         this.busrojo12.setVisible(false);
         this.busrojo13.setVisible(false);
     }
+    
+    private void setCaminoAzul(){
+        azul = new ArrayList();
+        azul.add(new ArrayList<JPanel>());
+        System.out.println(azul.get(0).get(0).getName());
+    }
 
+    private void setCaminoRojo(){
+        rojo = new ArrayList();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
