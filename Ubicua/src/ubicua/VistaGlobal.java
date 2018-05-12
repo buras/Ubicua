@@ -19,54 +19,80 @@ public class VistaGlobal extends javax.swing.JFrame {
     /**
      * Creates new form VistaGlobal
      */
-    ArrayList<ArrayList<JPanel>> azul;
-    ArrayList<ArrayList<JPanel>> rojo;
-    int posicionAzul, posicionRojo;
-    ArrayList<JLabel> iconoAzul;
-    ArrayList<JLabel> iconoRojo;
+    
+    int posicionAzul=0, posicionRojo=0;
+    ArrayList<JLabel>  iconoAzul = new ArrayList();  
+    ArrayList<JLabel>  iconoRojo = new ArrayList();
     
     public VistaGlobal() {
         initComponents(); 
-        posicionAzul = 0; posicionRojo = 0;
-       setCaminoAzul(); 
-       
-        iconoAzul = new ArrayList();   
-        this.busazul2.setVisible(false);
-        this.busazul3.setVisible(false);
-        this.busazul4.setVisible(false);
-        this.busazul5.setVisible(false);
-        this.busazul6.setVisible(false);
-        this.busazul7.setVisible(false);
-        this.busazul8.setVisible(false);
-        this.busazul9.setVisible(false);
-        this.busazul10.setVisible(false);
-        this.busazul11.setVisible(false);
         
+        setIconosAzul();
+        setIconosRojo();
        
-        iconoRojo = new ArrayList();
-        this.busrojo2.setVisible(false);
-        this.busrojo3.setVisible(false);
-        this.busrojo4.setVisible(false);
-        this.busrojo5.setVisible(false);
-        this.busrojo6.setVisible(false);
-        this.busrojo7.setVisible(false);
-        this.busrojo8.setVisible(false);
-        this.busrojo9.setVisible(false);
-        this.busrojo10.setVisible(false);
-        this.busrojo11.setVisible(false);
-        this.busrojo12.setVisible(false);
-        this.busrojo13.setVisible(false);
+        //setTramosAzul();
+        //setTramosRojo();
+        
+        moveIconoAzul(posicionAzul);
+        moveIconoRojo(posicionRojo);
+       
+        
     }
     
-    private void setCaminoAzul(){
-        azul = new ArrayList();
-        azul.add(new ArrayList<JPanel>());
-        System.out.println(azul.get(0).get(0).getName());
+    //Añade los JPanels y el tiempo que tarda en cada tramo del bus azul guardado en la clase tramo
+    private void setTramosAzul(){
+        
     }
-
-    private void setCaminoRojo(){
-        rojo = new ArrayList();
+    
+    
+    //Añade todos los iconos del recorrido del bus azul (en orden) a un arraylist
+    private void setIconosAzul() {
+        iconoAzul.add(this.busazul1);
+        iconoAzul.add(this.busazul2);
+        iconoAzul.add(this.busazul3);
+        iconoAzul.add(this.busazul4);
+        iconoAzul.add(this.busazul5);
+        iconoAzul.add(this.busazul6);
+        iconoAzul.add(this.busazul7);
+        iconoAzul.add(this.busazul8);
+        iconoAzul.add(this.busazul9);
+        iconoAzul.add(this.busazul10);
+        iconoAzul.add(this.busazul11);
     }
+    
+    //Esconde todos los iconos del bus azul menos el de la posición que se indica 
+    private void moveIconoAzul(int pos){    
+        for(int i=0;i<iconoAzul.size();i++){
+            if(i!=pos) iconoAzul.get(i).setVisible(false);
+            else iconoAzul.get(i).setVisible(true);
+        }
+    }
+    
+    //Añade todos los iconos del recorrido del bus rojo (en orden) a un arraylist
+    private void setIconosRojo() {
+        iconoRojo.add(this.busrojo1);
+        iconoRojo.add(this.busrojo2);
+        iconoRojo.add(this.busrojo3);
+        iconoRojo.add(this.busrojo4);
+        iconoRojo.add(this.busrojo5);
+        iconoRojo.add(this.busrojo6);
+        iconoRojo.add(this.busrojo7);
+        iconoRojo.add(this.busrojo8);
+        iconoRojo.add(this.busrojo9);
+        iconoRojo.add(this.busrojo10);
+        iconoRojo.add(this.busrojo11);
+        iconoRojo.add(this.busrojo12);
+        iconoRojo.add(this.busrojo13);
+    }
+    
+    //Esconde todos los iconos del bus rojo menos el de la posición que se indica 
+    private void moveIconoRojo(int pos){    
+        for(int i=0;i<iconoRojo.size();i++){
+            if(i!=pos) iconoRojo.get(i).setVisible(false);
+            else iconoRojo.get(i).setVisible(true);
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
